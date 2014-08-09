@@ -113,6 +113,7 @@ public class Robot extends IterativeRobot {
 
 	// This function is called periodically while disabled
 	public void disabledPeriodic() {
+		Scheduler.getInstance().run();
 		log();
 		drivetrain.calcPeriodic();
 	}
