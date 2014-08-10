@@ -144,6 +144,7 @@ public class DriveTrain extends Subsystem implements PIDSource {
     
     private void drive(double left, double right) {
         drive.setLeftRightMotorOutputs(-left, -right);
+        System.out.println("Left: " + left + " Right: " + right);
     }
     
     

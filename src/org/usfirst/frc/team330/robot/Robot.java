@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team330.robot.commands.DriveDistance;
 import org.usfirst.frc.team330.robot.commands.DriveTime;
+import org.usfirst.frc.team330.robot.commands.TurnGyroAbs;
 import org.usfirst.frc.team330.robot.subsystems.Collector;
 import org.usfirst.frc.team330.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team330.robot.subsystems.Pivot;
@@ -68,6 +69,7 @@ public class Robot extends IterativeRobot {
         
         auto.addCommand(new DriveTime());
         auto.addCommand(new DriveDistance());
+        auto.addCommand(new TurnGyroAbs(0));
 	}
 
 	public void autonomousInit() {
