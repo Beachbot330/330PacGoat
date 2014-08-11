@@ -79,17 +79,26 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class AutoSpreadsheet {
 //    FileReader file = null;
     BufferedReader reader = null;
-    final String filename = "2014AutoModesJava.csv";
+//    final String defaultFilename = "2014AutoModesJava.csv";
+    String filename;
+    String commandPackage;
     SendableChooser autoChooser;   
+    
+    public AutoSpreadsheet(String filename, String commandPackage)
+    {
+    	this.filename = filename;
+    	this.commandPackage = commandPackage;
+        selectedAuto = new String();
+//      System.out.println("begin of AutoSpreadsheet Constructor");
+      autoChooser = new SendableChooser();
+//      System.out.println(MarsRock.class.getName());
+      autoChooser.addDefault("Mars Rock", new MarsRock());
+//    System.out.println("end of AutoSpreadsheet Constructor");
+    }
     
     public AutoSpreadsheet()
     {
-        selectedAuto = new String();
-//        System.out.println("begin of AutoSpreadsheet Constructor");
-        autoChooser = new SendableChooser();
-//        System.out.println(MarsRock.class.getName());
-        autoChooser.addDefault("Mars Rock", new MarsRock());
-//        System.out.println("end of AutoSpreadsheet Constructor");
+    	this("2014AutoModesJava.csv", "org.usfirst.frc.team330.robot.commands");
     }
     
     private Hashtable<String,Command> commandTable = new Hashtable<String, Command>();
@@ -102,6 +111,30 @@ public class AutoSpreadsheet {
     public void addCommand(AutoSpreadsheetCommandGroup command)
     {
         commandTable.put(command.getName().toUpperCase(), command);
+    }
+    
+    public void addCommand(String commandName)
+    {
+    	try {
+			Object command = Class.forName(commandPackage + "." + commandName).newInstance();
+			if ((command instanceof AutoSpreadsheetCommand) || (command instanceof AutoSpreadsheetCommandGroup))
+			{
+				commandTable.put(commandName.toUpperCase(), (Command)command);
+			}
+			else
+			{
+				System.err.println(command.toString() + " is not an instance of AutospreadsheetCommand or AutoSpreadsheetCommandGroup");
+			}
+		} catch (ClassNotFoundException e) {
+			System.err.println("Can not find command: " + commandName + " in package: " + commandPackage);
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			System.err.println("Could not instantiate command: " + commandName + " in package: " + commandPackage);
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			System.err.println("Could not access command: " + commandName + " in package: " + commandPackage);
+			e.printStackTrace();
+		} 
     }
 
 
