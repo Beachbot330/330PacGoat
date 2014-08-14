@@ -13,6 +13,10 @@ public class DriveWaypointBackward extends DriveWaypoint {
     public DriveWaypointBackward(double x, double y, double tolerance, double timeout, boolean stopAtEnd) {
         super(x, y, tolerance, timeout, stopAtEnd);
     }
+    
+    public DriveWaypointBackward() {
+    	this(0,0,0,0,false);
+    }
 
     protected void calcXY(double x, double y) {
         double gyroAngle;
@@ -29,9 +33,4 @@ public class DriveWaypointBackward extends DriveWaypoint {
             angle = angle+180;
 //        System.out.println("Backward Angle: " + angle);
     }
-
-    public Command copy() {
-        return new DriveWaypointBackward(0,0,0,0,true);
-    }
-    
 }

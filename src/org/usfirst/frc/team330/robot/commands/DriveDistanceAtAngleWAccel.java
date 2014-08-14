@@ -49,7 +49,4 @@ public class  DriveDistanceAtAngleWAccel extends DriveDistanceAtAngle{
         Robot.drivetrain.leftDrivePID.setOutputRange(-maxoutput, maxoutput);
         Robot.drivetrain.rightDrivePID.setOutputRange(-maxoutput, maxoutput);
     }
-    public Command copy() {
-        return new DriveDistanceAtAngleWAccel();
-    }
 }

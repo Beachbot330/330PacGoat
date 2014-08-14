@@ -46,7 +46,4 @@ public class  MarsRock extends Command implements AutoSpreadsheetCommand{
     }
     public void setStopAtEnd(boolean stopAtEnd) {
     }
-    public Command copy() {
-        return new MarsRock();
-    }
 }

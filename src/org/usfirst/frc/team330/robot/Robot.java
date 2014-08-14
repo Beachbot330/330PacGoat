@@ -65,11 +65,12 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		
 		auto = new AutoSpreadsheet();
-        auto.readScripts();
+//        auto.readScripts();
         
-        auto.addCommand(new DriveTime());
-        auto.addCommand(new DriveDistance());
-        auto.addCommand(new TurnGyroAbs(0));
+//        auto.addCommand(new DriveTime());
+//        auto.addCommand("DriveTime");
+//        auto.addCommand(new DriveDistance());
+//        auto.addCommand(new TurnGyroAbs(0));
 	}
 
 	public void autonomousInit() {
@@ -118,6 +119,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		log();
 		drivetrain.calcPeriodic();
+		auto.checkForChange();
 	}
 	
 	/**

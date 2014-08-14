@@ -31,10 +31,6 @@ public class TurnGyroWaypoint extends TurnGyroAbs {
         calcAngle(x, y);
         super.initialize();
     }
-
-    public Command copy() {
-        return new TurnGyroWaypoint();
-    }
     
      /**
      * The first parameter in the AutoSpreadsheet

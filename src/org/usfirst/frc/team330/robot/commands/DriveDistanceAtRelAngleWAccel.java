@@ -38,8 +38,4 @@ public class DriveDistanceAtRelAngleWAccel extends DriveDistanceAtAngleWAccel {
         leftDistance = origDistance;
         rightDistance = origDistance;
     }
-
-    public Command copy() {
-        return new DriveDistanceAtRelAngleWAccel();
-    }
 }

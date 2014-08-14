@@ -46,11 +46,11 @@ public interface AutoSpreadsheetCommand{
      * @param param3 
      */
     public abstract void setParam3(double param3);
-    public abstract void setStopAtEnd(boolean stopAtEnd);
     /**
-     * 
-     * @return a copy of the command
+     * Determines whether the command should stop commanding its action at the
+     * end of the command, or continue (used for things like PID)
+     * @param stopAtEnd
      */
-    public abstract Command copy();
+    public abstract void setStopAtEnd(boolean stopAtEnd);
     
 }

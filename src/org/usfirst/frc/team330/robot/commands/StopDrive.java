@@ -50,7 +50,4 @@ public class  StopDrive extends Command implements AutoSpreadsheetCommand {
     }
     public void setStopAtEnd(boolean stopAtEnd) {
     }
-    public Command copy() {
-        return new StopDrive();
-    }
 }

@@ -45,8 +45,4 @@ public class  DriveDistanceAtAngle extends DriveDistance{
     public void setParam3(double angle) {
         this.angle = angle;
     }
-
-    public Command copy() {
-        return new DriveDistanceAtAngle();
-    }
 }

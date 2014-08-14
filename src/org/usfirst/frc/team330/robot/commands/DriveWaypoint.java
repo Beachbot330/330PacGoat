@@ -24,6 +24,10 @@ public class DriveWaypoint extends DriveDistanceAtRelAngleWAccel {
         this.setStopAtEnd(stopAtEnd);
         this.setTimeout(timeout);
     }
+    
+    public DriveWaypoint() {
+    	this(0,0,0,0,false);
+    }
 
     protected void initialize() {
         calcXY(x,y);
@@ -105,9 +109,4 @@ public class DriveWaypoint extends DriveDistanceAtRelAngleWAccel {
         super.setParam1(calcDistance);
         super.setParam3(calcAngle);
     }
-    
-    public Command copy() {
-        return new DriveWaypoint(0,0,0,0,false);
-    }
-
 }

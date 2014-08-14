@@ -20,6 +20,11 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class  TurnGyroRel extends TurnGyroAbs{
     double origAngle = 0;
+    
+    public TurnGyroRel() {
+    	this(0,0,15,false);
+    }
+    
     public TurnGyroRel(double angle) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(drivetrain);
@@ -44,8 +49,5 @@ public class  TurnGyroRel extends TurnGyroAbs{
     protected void end() {
         super.end(); //To change body of generated methods, choose Tools | Templates.
         angle = origAngle;
-    }
-    public Command copy() {
-        return new TurnGyroRel(0);
     }
 }

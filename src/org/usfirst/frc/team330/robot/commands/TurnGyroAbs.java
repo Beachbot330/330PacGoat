@@ -32,6 +32,10 @@ public class  TurnGyroAbs extends Command implements AutoSpreadsheetCommand {
     
     }
     
+    public TurnGyroAbs() {
+    	this(0,0,0,false);
+    }
+    
     public TurnGyroAbs(double angle, double tolerance, double timeout, boolean stopAtEnd) {
         this(angle, tolerance, timeout, stopAtEnd, true);
     }
@@ -112,8 +116,5 @@ public class  TurnGyroAbs extends Command implements AutoSpreadsheetCommand {
     }
     public void setStopAtEnd(boolean stopAtEnd) {
         this.stopAtEnd = stopAtEnd;
-    }
-    public Command copy() {
-        return new TurnGyroAbs(0);
     }
 }

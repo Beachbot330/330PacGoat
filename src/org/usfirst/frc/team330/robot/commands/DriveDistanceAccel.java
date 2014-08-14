@@ -19,6 +19,10 @@ public class  DriveDistanceAccel extends DriveDistance{
     double maxoutput = 0;
     double maxoutputStep = Robot.drivetrain.getDriveRampStep();
     
+    public DriveDistanceAccel() {
+    	this(0,0,0,true);
+    }
+    
     public DriveDistanceAccel(double distance) {
         this(distance, 0, 0, true);
     }
@@ -45,9 +49,5 @@ public class  DriveDistanceAccel extends DriveDistance{
         }
         Robot.drivetrain.leftDrivePID.setOutputRange(-maxoutput, maxoutput);
         Robot.drivetrain.rightDrivePID.setOutputRange(-maxoutput, maxoutput);
-    }
-    
-    public Command copy() {
-        return new DriveDistanceAccel(0);
     }
 }

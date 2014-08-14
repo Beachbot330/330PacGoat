@@ -42,11 +42,5 @@ public class DriveDistanceRel extends DriveDistance{
         super.end(); 
         leftDistance = origDistance;
         rightDistance = origDistance;
-    }
-    
-    public Command copy() {
-        return new DriveDistanceRel();
-    }
-    
-    
+    } 
 }
