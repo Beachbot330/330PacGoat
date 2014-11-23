@@ -79,9 +79,7 @@ public class DriveTrain extends Subsystem implements PIDSource {
 			rightEncoder.setDistancePerPulse((-4.0/*in*/*Math.PI)/(360.0/**12.0/*in/ft*/));
 			leftEncoder.setDistancePerPulse((-4.0/*in*/*Math.PI)/(360.0/**12.0/*in/ft*/));
 		}
-
-		rightEncoder.start();
-		leftEncoder.start();		
+	
 		LiveWindow.addSensor("DriveTrain", "Right Encoder", rightEncoder);
 		LiveWindow.addSensor("DriveTrain", "Left Encoder", leftEncoder);
 
